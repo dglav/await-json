@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>HTML 5 Boilerplate</title>
+    <link rel="stylesheet" href="https://matcha.mizu.sh/matcha.css" />
+    <!-- <link rel="stylesheet" href="style.css" /> -->
+  </head>
+  <body>
+    <h1>Why do we have to await response.json()?</h1>
+
+    <main>
+      <div class="flex center">
+        <button id="fetchJson">Fetch JSON</button>
+        <button id="streamJson">Stream JSON</button>
+      </div>
+
+      <article>
+        <header><h2>JSON will be streamed here...</h2></header>
+        <code id="streamedJson">{}</code>
+      </article>
+    </main>
+
+    <footer>Created by Drew Glavich</footer>
+
+    <script src="index.js"></script>
+  </body>
+</html>

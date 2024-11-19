@@ -19,4 +19,18 @@ Don't need nodemon!
 
 https://matcha.mizu.sh/#
 
-# 5. Introduce limitations of node --watch
+# 5. node --watch vs. nodemon
+
+## [node --watch](https://nodejs.org/api/cli.html#--watch)
+
+- Native implementation; nothing to install
+- Provides basic file watching functionality [link](https://nodejs.org/api/cli.html#--watch-path)
+- Limited to JavaScript files
+
+## [nodemon](https://nodemon.io/)
+
+- External package
+- Automatic/manual restarting
+- [Advanced path watching support](https://github.com/remy/nodemon#triggering-events-when-nodemon-state-changes)
+- [Supports other file types not just JavaScript](https://github.com/remy/nodemon#specifying-extension-watch-list)
+- [Event hooks](https://github.com/remy/nodemon#triggering-events-when-nodemon-state-changes)

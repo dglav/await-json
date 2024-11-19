@@ -4,17 +4,17 @@ const someData = {
   sugary: ["soda", "fruit juice"],
   alcohol: ["beer", "wine", "whiskey"],
 };
-const json = JSON.parse(someData); // Why is it that while this is a synchronous function...
+const json = JSON.parse(someData); // なぜこれは同期関数であるのに...
 
 const response = await fetch("/example");
-const data = await response.json(); // that we have to await this??? 🤔🤔🤔🤔🤔
+const data = await response.json(); // これを await しなければならないのでしょうか??? 🤔🤔🤔🤔🤔
 
-// A: Because body data can be very large and we don't want to take up the entire thread as it is being downloaded.
-// A: Maybe the response will never be done because I'm getting data over a continuous stream (i.e. live stream)
+// A: ボディデータが非常に大きい可能性があり、ダウンロード中にスレッド全体を占有させたくないからです。
+// A: 連続したストリーム（つまり生配信とか）からデータを取得している場合、レスポンスが完了しない可能性もあります。
 
-// How a server responds to an HTTP request
+// サーバーがHTTPリクエストにどのように応答するか
 //
-// - First send headers
-//   - Status Code
-//   - Headers
-// - Stream body
+// - まずヘッダー情報を送信
+//   - ステータスコード
+//   - ヘッダー
+// - ボディをストリーム

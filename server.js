@@ -16,7 +16,6 @@ const server = http.createServer((req, res) => {
 
       // res.setHeader("Content-Type", "text/plain; charset=utf-8");
       // Quiz: What will happen if we use this instead?
-      // A: The browser will interpret it as plain text and not render the data as html.
 
       return res.end(data);
     } catch (err) {
@@ -27,7 +26,6 @@ const server = http.createServer((req, res) => {
   }
 
   // Quiz: Why is this path necessary?
-  // A: Because additional resources are being requested after the original html was downloaded.
   if (req.method === "GET" && req.url === "/index.js") {
     try {
       const filepath = path.join(__dirname, "/index.js");
@@ -49,8 +47,6 @@ const server = http.createServer((req, res) => {
       res.setHeader("Transfer-Encoding", "chunked");
 
       // Quiz: Is it necessary to join the file with the __dirname? Couldn't we just use a relative path? i.e. "./json.json"
-      // A: Technically if we run the script from this directory it's fine, but if we run it from any other directory, it will error.
-      // Basically, it's better to guarantee that the resource being sent is not dependent on where the script is executed.
       const filepath = path.join(__dirname, "/json.json");
       // const filepath = "./json.json";
 
@@ -69,21 +65,16 @@ const server = http.createServer((req, res) => {
       });
 
       // Quiz: Is this necessary?
-      // A: Not technically, but it can cause problems not to have it.
-      // Example 1: Could lead to memory leaks because of improper cleanup
-      // Example 2: Performance problems etc.
       readStream.on("end", () => {
         res.end();
       });
 
       // Quiz: Is this necessary?
-      // A: No, but it is helpful for being able to handle errors gracefully.
       readStream.on("error", function (err) {
         throw err;
       });
 
       // Quiz: Is this necessary?
-      // A: Yes, because otherwise the source code will keep on going on ent up returning a 404 status code and the request will not be successful.
       return;
     } catch (err) {
       console.error(err);

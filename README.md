@@ -4,19 +4,7 @@ It is a way to visualize the data transmission in real time when the browser mak
 
 # 1. example.js
 
-# 2. How a server responds to an HTTP request
-
-- First send headers
-  - Status Code
-  - Headers
-- Stream body
-
-Why do you think it is done this way?
-
-A: Because body data can be very large and we don't want to take up the entire thread as it is being downloaded.
-A: Maybe the response will never be done because I'm getting data over a continuous stream (i.e. live stream)
-
-# 3. Demonstration
+# 2. Demonstration
 
 Start server with `node --watch server.js`
 Don't need nodemon!
@@ -25,10 +13,24 @@ Don't need nodemon!
 2. Check Network tab timeline
 3. Check network tab response tab
 
-# Go through server quiz questions
+# 3. Go through server quiz questions
 
-# Introduce matcha.css
+# 4. Introduce matcha.css
 
 https://matcha.mizu.sh/#
 
-# Introduce limitations of node --watch
+# 5. node --watch vs. nodemon
+
+## [node --watch](https://nodejs.org/api/cli.html#--watch)
+
+- Native implementation; nothing to install
+- Provides basic file watching functionality [link](https://nodejs.org/api/cli.html#--watch-path)
+- Limited to JavaScript files
+
+## [nodemon](https://nodemon.io/)
+
+- External package
+- Automatic/manual restarting
+- [Advanced path watching support](https://github.com/remy/nodemon#triggering-events-when-nodemon-state-changes)
+- [Supports other file types not just JavaScript](https://github.com/remy/nodemon#specifying-extension-watch-list)
+- [Event hooks](https://github.com/remy/nodemon#triggering-events-when-nodemon-state-changes)

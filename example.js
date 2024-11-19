@@ -4,7 +4,7 @@ const someData = {
   sugary: ["soda", "fruit juice"],
   alcohol: ["beer", "wine", "whiskey"],
 };
-const json = JSON.parse(someData); // Why is it that while this is a synchronous function...
+const json = JSON.parse(someData); // これは同期関数であるにもかかわらず...
 
 const response = await fetch("/example");
-const data = await response.json(); // that we have to await this??? 🤔🤔🤔🤔🤔
+const data = await response.json(); // なぜこれを await しなければならないのでしょうか？ 🤔🤔🤔🤔🤔

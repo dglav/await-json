@@ -1,36 +1,36 @@
-# What is it
+# これは何ですか
 
-It is a way to visualize the data transmission in real time when the browser makes an HTTP request.
+ブラウザがHTTPリクエストを行う際のデータ送信をリアルタイムで可視化する方法です。
 
 # 1. example.js
 
-# 2. Demonstration
+# 2. デモンストレーション
 
-Start server with `node --watch server.js`
-Don't need nodemon!
+`node --watch server.js`でサーバーを起動します
+nodemonは必要ありません！
 
-1. Check console logs
-2. Check Network tab timeline
-3. Check network tab response tab
+1. コンソールログを確認
+2. ネットワークタブのタイムラインを確認
+3. ネットワークタブのレスポンスタブを確認
 
-# 3. Go through server quiz questions
+# 3. サーバークイズの質問を進める
 
-# 4. Introduce matcha.css
+# 4. matcha.cssの紹介
 
 https://matcha.mizu.sh/#
 
-# 5. node --watch vs. nodemon
+# 5. node --watch と nodemon の比較
 
 ## [node --watch](https://nodejs.org/api/cli.html#--watch)
 
-- Native implementation; nothing to install
-- Provides basic file watching functionality [link](https://nodejs.org/api/cli.html#--watch-path)
-- Limited to JavaScript files
+- ネイティブ実装；インストール不要
+- 基本的なファイル監視機能を提供 [リンク](https://nodejs.org/api/cli.html#--watch-path)
+- JavaScriptファイルに限定
 
 ## [nodemon](https://nodemon.io/)
 
-- External package
-- Automatic/manual restarting
-- [Advanced path watching support](https://github.com/remy/nodemon#triggering-events-when-nodemon-state-changes)
-- [Supports other file types not just JavaScript](https://github.com/remy/nodemon#specifying-extension-watch-list)
-- [Event hooks](https://github.com/remy/nodemon#triggering-events-when-nodemon-state-changes)
+- 外部パッケージ
+- 自動/手動再起動
+- [高度なパス監視サポート](https://github.com/remy/nodemon#triggering-events-when-nodemon-state-changes)
+- [JavaScriptだけでなく他のファイルタイプもサポート](https://github.com/remy/nodemon#specifying-extension-watch-list)
+- [イベントフック](https://github.com/remy/nodemon#triggering-events-when-nodemon-state-changes)

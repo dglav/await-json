@@ -6,7 +6,6 @@ const hostname = "127.0.0.1";
 const port = 3000;
 
 const server = http.createServer((req, res) => {
-  // Don't usually see the way this is implemented b/c Firebase Hosting handles all this for us
   if (req.method === "GET" && req.url === "/") {
     try {
       const filepath = path.join(__dirname, "/index.html");
@@ -15,8 +14,7 @@ const server = http.createServer((req, res) => {
       res.setHeader("Content-Type", "text/html; charset=utf-8");
 
       // res.setHeader("Content-Type", "text/plain; charset=utf-8");
-      // Quiz: What will happen if we use this instead?
-      // A: The browser will interpret it as plain text and not render the data as html.
+      // クイズ：代わりにこれを使用するとどうなりますか？
 
       return res.end(data);
     } catch (err) {
@@ -26,8 +24,7 @@ const server = http.createServer((req, res) => {
     }
   }
 
-  // Quiz: Why is this path necessary?
-  // A: Because additional resources are being requested after the original html was downloaded.
+  // クイズ：なぜこのパスが必要なのですか？
   if (req.method === "GET" && req.url === "/index.js") {
     try {
       const filepath = path.join(__dirname, "/index.js");
@@ -48,9 +45,7 @@ const server = http.createServer((req, res) => {
       res.setHeader("Content-Type", "application/json");
       res.setHeader("Transfer-Encoding", "chunked");
 
-      // Quiz: Is it necessary to join the file with the __dirname? Couldn't we just use a relative path? i.e. "./json.json"
-      // A: Technically if we run the script from this directory it's fine, but if we run it from any other directory, it will error.
-      // Basically, it's better to guarantee that the resource being sent is not dependent on where the script is executed.
+      // クイズ：ファイルを__dirnameと結合する必要がありますか？相対パスを使用できないのでしょうか？例：「./json.json」
       const filepath = path.join(__dirname, "/json.json");
       // const filepath = "./json.json";
 
@@ -68,22 +63,17 @@ const server = http.createServer((req, res) => {
         }, 1);
       });
 
-      // Quiz: Is this necessary?
-      // A: Not technically, but it can cause problems not to have it.
-      // Example 1: Could lead to memory leaks because of improper cleanup
-      // Example 2: Performance problems etc.
+      // クイズ：これは必要ですか？
       readStream.on("end", () => {
         res.end();
       });
 
-      // Quiz: Is this necessary?
-      // A: No, but it is helpful for being able to handle errors gracefully.
+      // クイズ：これは必要ですか？
       readStream.on("error", function (err) {
         throw err;
       });
 
-      // Quiz: Is this necessary?
-      // A: Yes, because otherwise the source code will keep on going on ent up returning a 404 status code and the request will not be successful.
+      // クイズ：これは必要ですか？
       return;
     } catch (err) {
       console.error(err);
@@ -98,5 +88,5 @@ const server = http.createServer((req, res) => {
 });
 
 server.listen(port, hostname, () => {
-  console.log(`Server is running at ${hostname}:${port}`);
+  console.log(`サーバーが ${hostname}:${port} で実行中です`);
 });
